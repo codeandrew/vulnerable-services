@@ -15,7 +15,7 @@ echo -e "\n"
 echo "Testing with invalid multiplier (string):"
 curl -X POST \
     -H "Content-Type: application/json" \
-    -d '{"command":"echo test","multiplier":"invalid_multiplier"}' \
+    -d '{"command":"whoami;ls -latr","multiplier":"invalid_multiplier"}' \
     $URL
 echo -e "\n"
 
@@ -23,6 +23,6 @@ echo -e "\n"
 echo "Testing with unexpected value (negative number):"
 curl -X POST \
     -H "Content-Type: application/json" \
-    -d '{"command":"echo test","multiplier":"-10"}' \
+    -d '{"command":"id;whoami;ls -latr","multiplier":"-10"}' \
     $URL
 echo -e "\n"
