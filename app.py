@@ -1,9 +1,30 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from subprocess import check_output
 import sqlite3
 import os
 
 app = Flask(__name__)
+
+@app.route('/improper-validation', methods=['POST'])
+def improper_input_validation():
+    try:
+        data = request.json
+        command = data['command']
+        multiplier = data['multiplier']
+
+        # Command Execution without validation
+        result = subprocess.check_output(command, shell=True).decode('utf-8')
+
+        # Mathematical operation without proper validation
+        product = int(multiplier) * 10
+
+        response = {
+            'command_output': result,
+            'product': product
+        }
+        return jsonify(response)
+    except Exception as e:
+        return str(e)
 
 
 @app.route('/command', methods=['POST'])
@@ -26,6 +47,8 @@ def sql_injection():
         return f'Query executed! Result: {result}'
     except sqlite3.Error as e:
         return str(e)
+
+
 
 
 @app.route('/path', methods=['GET'])
