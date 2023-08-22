@@ -13,7 +13,7 @@ def improper_input_validation():
         multiplier = data['multiplier']
 
         # Command Execution without validation
-        result = subprocess.check_output(command, shell=True).decode('utf-8')
+        result = check_output(command, shell=True).decode('utf-8')
 
         # Mathematical operation without proper validation
         product = int(multiplier) * 10
