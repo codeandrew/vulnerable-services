@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "LShW00Y8hsdT/V22IKcvx9mIzMSCqJ+ZBZOlZ91msT0=",
+  "Source": "VulnerableDotNetApp",
+  "BasePath": "_content/VulnerableDotNetApp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
