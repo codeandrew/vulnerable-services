@@ -30,8 +30,10 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.Sqlite;
-using System;
 using System.Diagnostics;
+using System.IO;
+using System;
+
 
 namespace VulnerableApp.Controllers
 {
@@ -94,5 +96,21 @@ namespace VulnerableApp.Controllers
         {
             return "Status OK";
         }
+
+        [HttpGet("pathtraversal")]
+        public string PathTraversal(string filepath)
+        {
+            string result;
+            try
+            {
+                result = System.IO.File.ReadAllText(filepath);
+            }
+            catch (Exception e)
+            {
+                result = $"Error: {e.Message}";
+            }
+            return result;
+        }
+
     }
 }
